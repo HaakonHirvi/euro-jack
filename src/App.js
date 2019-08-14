@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import EuroNum from './components/euromaschine';
 // import NameForm from './components/input';
 // import numInput from './components/_numberInput';
-import SomeNumber from './components/rowInput';
+import LuckyNumber from './components/luckyNumber';
 
 import './App.css';
 
-function App(props) {
+function App() {
   return (
     <div>
       <EuroNum />
 
-      <SomeNumber text='sometext' />
+      <LuckyNumber />
     </div>
   );
 }

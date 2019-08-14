@@ -15,6 +15,7 @@ const SomeInput = () => {
 
     setNumber('');
   };
+  const [userAlert, setUserAlert] = useState();
 
   const numCalculation = num => {
     let rows = [];
@@ -22,13 +23,28 @@ const SomeInput = () => {
     let numI = Number(num);
     console.log(typeof num);
     if (numI < 1 || isNaN(num)) {
-      return (
+      setUserAlert(
         <div className='alertContainer'>
-          <h5>
+          <h4>
             Sorry we couldn't work with this input. Please enter a number.
-          </h5>
+          </h4>
         </div>
       );
+      setTimeout(() => {
+        setUserAlert(null);
+      }, 2500);
+    } else if (numI > 99) {
+      setUserAlert(
+        <div className='alertContainer'>
+          <h4>
+            Your number {numI} is to big. Please select a number smaller than
+            100.
+          </h4>
+        </div>
+      );
+      setTimeout(() => {
+        setUserAlert(null);
+      }, 4000);
     } else {
       for (let i = 0; i < numI; i++) {
         rows.push(
@@ -39,7 +55,7 @@ const SomeInput = () => {
       }
       return (
         <div className='container'>
-          <h5>{num} rows of lucky numbers</h5>
+          <h4>Your {num} rows EURO JACKPOT - lucky numbers</h4>
           <div>{rows}</div>
         </div>
       );
@@ -61,6 +77,7 @@ const SomeInput = () => {
           </button>
         </form>
       </div>
+      {userAlert}
 
       {calculation}
     </div>

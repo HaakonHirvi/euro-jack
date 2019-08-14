@@ -36,13 +36,13 @@ const singleRow = () => {
   return (
     <div className='inlineContainer'>
       {euroArray.map((el, i) => (
-        <div key={i} className='inline'>
+        <div key={i} className='inline width'>
           {el}
         </div>
       ))}
-      <div className='inline'>Star Numbers</div>
+      <div className='inline lineHeight'>Star Numbers</div>
       {starNum.map((num, i) => (
-        <div key={i} className='inline'>
+        <div key={i} className='inline width'>
           {num}
         </div>
       ))}
